@@ -1,0 +1,19 @@
+<h1>New Message</h1>
+
+<% if @message.errors.any? %>
+  <p>
+    Didn't work bro
+  </p>
+  <% @message.errors.full_messages.each do |error| %>
+    <p>
+      <%= error %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= bootstrap_form_for @message do |f| %>
+  <%= f.text_field :to %>
+  <%= f.text_field :from %>
+  <%= f.text_field :body %>
+  <%= f.submit "Create Message" %>
+<% end %>
